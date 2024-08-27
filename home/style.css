@@ -6,9 +6,9 @@
     -moz-box-sizing: border-box;
 }
 body {
-    font-family: Helvetica;
-    -webkit-font-smoothing: antialiased;
-    background: rgba(71, 147, 227, 1);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    background: rgb(255,85,0);
+    background: linear-gradient(90deg, rgba(255,85,0,1) 10%, rgba(197,121,71,1) 35%, rgba(135,108,147,1) 62%, rgba(0,172,255,1) 100%);
 }
 
 nav{
@@ -19,9 +19,9 @@ nav{
 }
 
 nav a {
+    font-family:cursive;
     text-decoration: none;
     font-size: 18px;
-    text-transform: uppercase;
     letter-spacing: 1px;
     color: white;
     padding: 30px 0;
@@ -43,13 +43,15 @@ span{
     color: white;
     border-radius: 50%;
     display: flex;
+    text-align: center;
     justify-content: center;
     align-items: center;
     width: 20px;
     height: 20px;
-
+    line-height: 18px;
+    
     text-align: center;
-    top: 17px;
+    top: 15px;
     right: 90px;
 
 }
@@ -58,7 +60,7 @@ span{
 /* Table Styles */
 
 .table-wrapper {
-    margin: 10px 70px 70px;
+    margin: 10px;
     box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
 }
 

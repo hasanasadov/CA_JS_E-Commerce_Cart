@@ -31,20 +31,28 @@ getItems();
 showItems();
 
 
+
+
 let addBtn = document.querySelectorAll(".add-btn");
 if (cart == null) {
     cart = [];
 }
-let count = cart.length ;
-document.querySelector(".cart-count").innerHTML = count;
 
-addBtn.forEach((e, idx) => {
-    e.addEventListener("click", function () {
-        let product = items.find((product) => product.id == idx + 1);
-        cart.push(product);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        count++;
-        document.querySelector(".cart-count").innerHTML = count;
+function count() {
+    
+    let count = cart.length ;
+    document.querySelector(".cart-count").innerHTML = count;
+    
+    addBtn.forEach((e, idx) => {
+        e.addEventListener("click", function () {
+            let product = items.find((product) => product.id == idx + 1);
+            cart.push(product);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            count++;
+            document.querySelector(".cart-count").innerHTML = count;
+        });
     });
-});
+}
+
+count();
 localStorage.getItem("cart");

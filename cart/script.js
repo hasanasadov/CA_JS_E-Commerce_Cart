@@ -41,11 +41,11 @@ function refreshNewCart() {
             newCart.push(cartItems[i]);
         }
     }
+    document.querySelector(".cart-count").textContent = newCart.length;
 }
 
 refreshNewCart();
-console.log(cartItems);
-console.log(newCart);
+
 
 trEl = document.querySelectorAll("tr");
 let removeBtn = document.querySelectorAll(".remove-btn");
@@ -61,3 +61,5 @@ removeBtn.forEach((el, idx) => {
         }
     });
 });
+
+
