@@ -3,6 +3,7 @@ function setItems() {
 }
 function getItems() {
     products = JSON.parse(localStorage.getItem("items"));
+    cart = JSON.parse(localStorage.getItem("cart"));
     if (products == null) {
         products = [];
     }
@@ -28,10 +29,13 @@ function showItems() {
 
 getItems();
 showItems();
-localStorage.setItem("cart", JSON.stringify([]));
-let cart = JSON.parse(localStorage.getItem("cart"));
+
+
 let addBtn = document.querySelectorAll(".add-btn");
-let count = 0;
+if (cart == null) {
+    cart = [];
+}
+let count = cart.length ;
 document.querySelector(".cart-count").innerHTML = count;
 
 addBtn.forEach((e, idx) => {
