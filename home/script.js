@@ -26,7 +26,7 @@ function showItems() {
         table.appendChild(createtbody);
     }
 }
-
+setItems();
 getItems();
 showItems();
 
@@ -39,7 +39,6 @@ if (cart == null) {
 }
 
 function count() {
-    
     let count = cart.length ;
     document.querySelector(".cart-count").innerHTML = count;
     
