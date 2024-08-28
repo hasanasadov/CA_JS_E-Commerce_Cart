@@ -9,7 +9,6 @@ function getItems() {
     }
     setItems();
 }
-
 function showItems() {
     let table = document.querySelector("table");
     let createtbody = document.createElement("tbody");
@@ -26,20 +25,9 @@ function showItems() {
         table.appendChild(createtbody);
     }
 }
-setItems();
-getItems();
-showItems();
-
-
-
-
-let addBtn = document.querySelectorAll(".add-btn");
-if (cart == null) {
-    cart = [];
-}
-
 function count() {
     let count = cart.length ;
+    let addBtn = document.querySelectorAll(".add-btn");
     document.querySelector(".cart-count").innerHTML = count;
     
     addBtn.forEach((e, idx) => {
@@ -53,5 +41,15 @@ function count() {
     });
 }
 
-count();
+
+
+
+//Initialize
+
 localStorage.getItem("cart");
+setItems();
+getItems();
+showItems();
+cart == null ? cart = [] : cart
+count();
+

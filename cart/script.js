@@ -1,10 +1,3 @@
-const cartItems = JSON.parse(localStorage.getItem("cart"));
-let trEl = document.querySelectorAll("tr");
-let newCart = [];
-if (cartItems == null) {
-    cartItems = [];
-}
-
 function start() {
     let table = document.querySelector("table");
     let createtbody = document.createElement("tbody");
@@ -31,9 +24,6 @@ function start() {
         cartItems[i].count = c;
     }
 }
-
-start();
-
 function refreshNewCart() {
     newCart = [];
     for (let i = 0; i < cartItems.length; i++) {
@@ -43,23 +33,28 @@ function refreshNewCart() {
     }
     document.querySelector(".cart-count").textContent = newCart.length;
 }
-
-refreshNewCart();
-
-
-trEl = document.querySelectorAll("tr");
-let removeBtn = document.querySelectorAll(".remove-btn");
-removeBtn.forEach((el, idx) => {
-    el.addEventListener("click", () => {
-        cartItems[idx].count--;
-        refreshNewCart();
-        
-        trEl[idx + 1].children[4].textContent--;
-        localStorage.setItem("cart", JSON.stringify(newCart));
-        if (trEl[idx + 1].children[4].textContent == 0) {
-            trEl[idx + 1].remove();
-        }
+function removeButton(){
+    let trEl = document.querySelectorAll("tr");
+    let removeBtn = document.querySelectorAll(".remove-btn");
+    removeBtn.forEach((el, idx) => {
+        el.addEventListener("click", () => {
+            cartItems[idx].count--;
+            refreshNewCart();
+            trEl[idx + 1].children[4].textContent--;
+            localStorage.setItem("cart", JSON.stringify(newCart));
+            if (trEl[idx + 1].children[4].textContent == 0) {
+                trEl[idx + 1].remove();
+            }
+        });
     });
-});
+}
 
+//GetElements
+const cartItems = JSON.parse(localStorage.getItem("cart"));
+cartItems == null ? cartItems = [] : cartItems
 
+let newCart = [];//Ordered
+
+start();
+refreshNewCart();
+removeButton();
